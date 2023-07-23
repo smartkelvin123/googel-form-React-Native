@@ -15,7 +15,7 @@ const PersonDetails = () => {
     <ScrollView
       contentContainerStyle={{
         gap: 15,
-        maxWidth: 300,
+        maxWidth: 500,
         width: "100%",
         alignSelf: "center",
       }}
