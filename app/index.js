@@ -3,18 +3,18 @@ import React from "react";
 import { Link, Redirect } from "expo-router";
 
 const index = () => {
-  return <Redirect href={"/checkout"} />;
-  //   return (
-  //     <View style={styles.container}>
-  //       <View style={styles.main}>
-  //         <Text style={styles.title}>Hello World</Text>
-  //         <Text style={styles.subtitle}>This is your app</Text>
-  //         <Link href={"/checkout"} style={styles.subtitle}>
-  //           checkout
-  //         </Link>
-  //       </View>
-  //     </View>
-  //   );
+  // return <Redirect href={"/checkout"} />;
+  return (
+    <View style={styles.container}>
+      <View style={styles.main}>
+        <Text style={styles.title}>Hello World</Text>
+        <Text style={styles.subtitle}>This is your app</Text>
+        <Link href={"/checkout"} style={styles.subtitle}>
+          checkout
+        </Link>
+      </View>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({

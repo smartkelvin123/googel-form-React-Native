@@ -1,13 +1,44 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React from "react";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
+import { Button, Card, TextInput, useTheme } from "react-native-paper";
 
 const PersonDetails = () => {
+  const router = useRouter();
+  const theme = useTheme();
+
+  const nextpage = () => {
+    router.push("/checkout/delivery");
+  };
+
   return (
-    <View>
-      <Text style={{ fontSize: 30 }}>PersonDetails</Text>
-      <Link href="/checkout/delivery">next</Link>
-    </View>
+    <ScrollView
+      contentContainerStyle={{
+        gap: 15,
+        maxWidth: 300,
+        width: "100%",
+        alignSelf: "center",
+      }}
+      showsHorizontalScrollIndicator={false}
+    >
+      <Card style={{ backgroundColor: theme.colors.background }}>
+        <Card.Title title="personal information" titleVariant="titleLarge" />
+        <Card.Content style={{ gap: 10 }}>
+          <TextInput
+            label="name"
+            placeholder="name"
+            style={{ backgroundColor: theme.colors.background }}
+          />
+          <TextInput
+            label="Email"
+            placeholder="hey@gmail.com"
+            style={{ backgroundColor: theme.colors.background }}
+          />
+        </Card.Content>
+      </Card>
+
+      <Button mode="contained" onPress={nextpage}></Button>
+    </ScrollView>
   );
 };
 
