@@ -16,6 +16,7 @@ import {
   DeliveryInfo,
   DeliveryInfoSchema,
 } from "../../src/schema/checkoutSchema";
+import { useCheckoutContext } from "../../src/contexts/CheckoutContext";
 
 const Delivery = () => {
   const { control, handleSubmit } = useForm<DeliveryInfo>({
@@ -25,11 +26,13 @@ const Delivery = () => {
     },
   });
 
-  // const [shipping, setShipping] = useState("free");
   const router = useRouter();
   const theme = useTheme();
+  const { setDelivery } = useCheckoutContext();
 
-  const nextPage = () => {
+  const nextPage = (data: DeliveryInfo) => {
+    setDelivery(data);
+
     router.push("/checkout/payment");
   };
 

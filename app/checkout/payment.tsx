@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { Alert, View, Text, ScrollView } from "react-native";
 import React from "react";
 import {
   Button,
@@ -16,26 +16,28 @@ import {
   PaymentInfoSchema,
 } from "../../src/schema/checkoutSchema";
 import ControlledInput from "../../src/components/ControlledInput";
+import { useCheckoutContext } from "../../src/contexts/CheckoutContext";
 
 const Payment = () => {
   const { control, handleSubmit } = useForm<PaymentInfo>({
     resolver: zodResolver(PaymentInfoSchema),
   });
 
-  // const { onSubmitAll } = useCheckoutContext();
+  const { onSubmitAll, setPayment } = useCheckoutContext();
   const router = useRouter();
   const theme = useTheme();
 
-  // const nextPage = async (data: PaymentInfo) => {
-  //   // Submit
-  //   const success = await onSubmitAll(data);
+  const nextPage = async (data: PaymentInfo) => {
+    setPayment(data);
 
-  //   if (success) {
-  //     router.push("/");
-  //   } else {
-  //     Alert.alert("Failed to submit the form");
-  //   }
-  // };
+    const success = await onSubmitAll(data);
+
+    if (success) {
+      router.push("/");
+    } else {
+      Alert.alert("Failed to submit the form");
+    }
+  };
   return (
     <ScrollView
       contentContainerStyle={{
