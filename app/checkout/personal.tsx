@@ -15,6 +15,7 @@ import {
   PersonalInfo,
 } from "../../src/schema/checkoutSchema";
 import ControlledInput from "../../src/components/ControlledInput";
+import { useCheckoutContext } from "../../src/contexts/CheckoutContext";
 
 const PersonDetails = () => {
   const { control, handleSubmit } = useForm<PersonalInfo>({
