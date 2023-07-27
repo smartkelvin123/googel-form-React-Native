@@ -23,13 +23,14 @@ const CheckoutStack = () => {
         }}
       >
         <Stack.Screen
-          name="index"
-          options={{ title: "personal information" }}
-        />
-        <Stack.Screen
           name="delivery"
           options={{ title: "delivery information" }}
         />
+        <Stack.Screen
+          name="index"
+          options={{ title: "personal information" }}
+        />
+
         <Stack.Screen
           name="payment"
           options={{ title: "payment information" }}
