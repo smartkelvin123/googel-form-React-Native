@@ -10,7 +10,7 @@ import {
 } from "react-native-paper";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { PersonalInfoSchema, PersonalInfo } from "../../src/schema/checkout";
+// import { PersonalInfoSchema, PersonalInfo } from "../../src/schema/checkout";
 import ControlledInput from "../../src/components/ControlledInput";
 
 const PersonDetails = () => {
